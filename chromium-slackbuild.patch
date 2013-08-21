@@ -1,0 +1,38 @@
+--- chromiumold.SlackBuild	2013-08-21 19:49:13.049632500 +0100
++++ chromium.SlackBuild	2013-08-20 11:19:18.154885482 +0100
+@@ -24,7 +24,7 @@
+ # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ 
+ PRGNAM=chromium
+-VERSION=${VERSION:-24.0.1312.52}
++VERSION=${VERSION:-28.0.1500.95}
+ BUILD=${BUILD:-1}
+ TAG=${TAG:-_SBo}
+ 
+@@ -69,7 +69,7 @@
+ mkdir -p $TMP $PKG $OUTPUT
+ cd $TMP
+ rm -rf $PRGNAM-$VERSION
+-tar xvf $CWD/$PRGNAM-$VERSION.tar.bz2
++tar xvf $CWD/$PRGNAM-$VERSION.tar.xz
+ cd $PRGNAM-$VERSION
+ chown -R root:root .
+ find . \
+@@ -78,7 +78,7 @@
+  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
+  -exec chmod 644 {} \;
+ 
+-patch -p1 < $CWD/chromium-header.patch
++#patch -p1 < $CWD/chromium-header.patch
+ 
+ # Change "-Dproprietary_codecs" to "0" if you don't want to use proprietary codecs
+ 
+@@ -100,7 +100,7 @@
+  -Duse_kerberos=0 \
+  -Duse_system_bzip2=1 \
+  -Duse_system_ffmpeg=0 \
+- -Duse_system_libevent=1 \
++ -Duse_system_libevent=1\
+  -Duse_system_libpng=0 \
+  -Duse_system_libjpeg=1 \
+  -Duse_system_libxslt=1 \
